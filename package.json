@@ -47,6 +47,10 @@
         "react-intl": "^5.4.5",
         "react-scripts": "^4.x"
     },
+    "files": [
+        "package.json",
+        "/lib"
+    ],
     "eslintConfig": {
         "extends": [
             "react-app",
