@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "target": "es2015",
+        "target": "esnext",
         "outDir": "./lib",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": false,
@@ -19,7 +19,8 @@
         "declaration": true,
         "moduleResolution": "node",
         "noEmit": false,
-        "baseUrl": "./src/common"
+        "baseUrl": "./src/common",
+        "sourceMap": true
     },
     "include": ["src/common"],
     "exclude": ["node_modules", "src/dev"]

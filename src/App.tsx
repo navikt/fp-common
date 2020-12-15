@@ -1,4 +1,4 @@
-import LanguageToggle from 'components/language-toggle/LanguageToggle';
+import LanguageToggle from 'common/components/language-toggle/LanguageToggle';
 import AppIntlProvider from 'dev/components/app-intl-provider/AppIntlProvider';
 import React from 'react';
 
