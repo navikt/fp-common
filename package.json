@@ -8,6 +8,8 @@
         "eject": "react-scripts eject",
         "build-lib": "npm-run-all clean-lib compile-lib-script copy-files-to-lib",
         "clean-lib": "rimraf ./lib",
+        "patch": "npm version patch",
+        "patchit": "npm-run-all build-lib patch do-publish",
         "compile-lib-script": "tsc -p tsconfig-build-lib.json",
         "copy-files-to-lib": "copyfiles -u 2 \"src/common/**/*.less\" lib/ && copyfiles -u 2 \"src/common/**/*.json\" lib/"
     },
