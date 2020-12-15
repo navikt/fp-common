@@ -1,3 +1,5 @@
+import React from 'react';
+
 const NorwayFlagSVG = () => (
     <svg focusable="false" role="presentation" width={25} height={18}>
         <title>{'Flag_of_Norway'}</title>

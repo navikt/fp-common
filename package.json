@@ -4,9 +4,12 @@
     "private": true,
     "scripts": {
         "start": "craco start",
-        "build": "react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "build-lib": "npm-run-all clean-lib compile-lib-script copy-files-to-lib",
+        "clean-lib": "rimraf ./lib",
+        "compile-lib-script": "tsc -p tsconfig-build-lib.json",
+        "copy-files-to-lib": "copyfiles -u 2 \"src/common/**/*.less\" lib/ && copyfiles -u 2 \"src/common/**/*.json\" lib/"
     },
     "dependencies": {
         "@testing-library/jest-dom": "^5.11.6",
@@ -32,12 +35,14 @@
         "@craco/craco": "^5.9.0",
         "@types/classnames": "^2.2.11",
         "@types/react-aria-menubutton": "^6.2.7",
-        "craco-less": "^1.17.1"
+        "copyfiles": "^2.4.1",
+        "craco-less": "^1.17.1",
+        "npm-run-all": "^4.1.5"
     },
     "peerDependencies": {
         "intl": "^1.2.5",
-        "react-intl": "^5.4.5",
-        "react": "^16.12.0 || ^17.0.0"
+        "react": "^16.12.0 || ^17.0.0",
+        "react-intl": "^5.4.5"
     },
     "eslintConfig": {
         "extends": [
