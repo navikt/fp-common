@@ -1,5 +1,5 @@
 {
-    "name": "fp-common",
+    "name": "@navikt/fp-common",
     "version": "1.0.0",
     "private": true,
     "scripts": {
@@ -33,6 +33,11 @@
         "@types/classnames": "^2.2.11",
         "@types/react-aria-menubutton": "^6.2.7",
         "craco-less": "^1.17.1"
+    },
+    "peerDependencies": {
+        "intl": "^1.2.5",
+        "react-intl": "^5.4.5",
+        "react": "^16.12.0 || ^17.0.0"
     },
     "eslintConfig": {
         "extends": [
