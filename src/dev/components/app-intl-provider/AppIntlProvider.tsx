@@ -1,6 +1,6 @@
+import { getBokmålLocale, getNynorskLocale } from 'common/utils/localeUtils';
 import React from 'react';
 import { IntlProvider } from 'react-intl';
-import { getBokmålLocale, getNynorskLocale } from 'utils/localeUtils';
 import { appMessages } from './messages';
 
 export interface IntlProviderProps {
