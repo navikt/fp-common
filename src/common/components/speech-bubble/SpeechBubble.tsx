@@ -2,8 +2,7 @@ import React from 'react';
 import { Element } from 'nav-frontend-typografi';
 
 import './speechBubble.less';
-
-import { bemUtils } from 'common';
+import bemUtils from 'common/utils/bemUtils';
 
 interface Props {
     title: string;

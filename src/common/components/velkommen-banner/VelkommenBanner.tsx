@@ -1,10 +1,10 @@
+import bemUtils from 'common/utils/bemUtils';
 import React from 'react';
 import SpeechBubble from '../speech-bubble/SpeechBubble';
 
 import Veileder, { VeilederProps } from '../veileder/Veileder';
 
 import './velkommenBanner.less';
-import { bemUtils } from 'common';
 
 interface Props {
     dialog?: Dialog;
