@@ -12,6 +12,8 @@
         "do-publish": "npm publish",
         "patch": "npm version patch",
         "patchit": "npm-run-all build-lib patch do-publish",
+        "minor": "npm version minor",
+        "bumpit": "npm-run-all build-lib minor do-publish",
         "compile-lib-script": "tsc -p tsconfig-build-lib.json",
         "copy-files-to-lib": "copyfiles -u 2 \"src/common/**/*.less\" lib/ && copyfiles -u 2 \"src/common/**/*.json\" lib/"
     },
@@ -27,6 +29,8 @@
         "nav-frontend-chevron": "^1.0.21",
         "nav-frontend-chevron-style": "^0.3.10",
         "nav-frontend-core": "^5.0.10",
+        "nav-frontend-typografi": "^2.0.20",
+        "nav-frontend-typografi-style": "^1.0.26",
         "nav-frontend-lenker-style": "^0.2.39",
         "react": "^17.0.1",
         "react-aria-menubutton": "^7.0.0",
