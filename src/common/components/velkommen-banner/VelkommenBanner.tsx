@@ -1,4 +1,4 @@
-import bemUtils from 'common/utils/bemUtils';
+import bemUtils from '../../utils/bemUtils';
 import React from 'react';
 import SpeechBubble from '../speech-bubble/SpeechBubble';
 
