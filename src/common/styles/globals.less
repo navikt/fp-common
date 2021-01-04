@@ -1,14 +1,8 @@
 @import 'variables';
+@import '~nav-frontend-core/less/_mixins.less';
 
 #app  {
     background-color: white;
     min-width: 320px;
-    &:before,
-    &:after {
-        content: ' '; // 1
-        display: table; // 2
-    }
-    &:after {
-        clear: both;
-    }
+    .clearfix();
 }
