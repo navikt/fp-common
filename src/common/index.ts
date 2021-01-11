@@ -8,4 +8,5 @@ export * from './types';
 
 export { default as bemUtils } from './utils/bemUtils';
 export { default as intlUtils } from './utils/intlUtils';
+export { default as useDocumentTitle } from './utils/useDocumentTitle';
 export * from './utils/localeUtils';
