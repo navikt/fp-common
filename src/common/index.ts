@@ -1,6 +1,7 @@
 export { default as LanguageToggle } from './components/language-toggle/LanguageToggle';
 export { default as VelkommenBanner } from './components/velkommen-banner/VelkommenBanner';
 export { default as Block } from './components/block/Block';
+export { default as Step } from './components/step/Step';
 
 export { default as allCommonMessages } from './i18n/allCommonMessages';
 

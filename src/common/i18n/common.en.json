@@ -3,5 +3,17 @@
     "locale.nn": "Nynorsk - norsk",
     "locale.en": "English",
     "locale.no-NB": "Bokmål - norsk",
-    "locale.no-NN": "Nynorsk - norsk"
+    "locale.no-NN": "Nynorsk - norsk",
+    "defaultMainRoleLabel": "Main content",
+    "backlink.label": "Back",
+    "avbrytSøknadDialog.avbrytSøknadLabel": "Yes, cancel application",
+    "avbrytSøknadDialog.fortsettSøknadLabel": "No",
+    "avbrytSøknadDialog.intro": "What has been filled out so far will be deleted and you will be returned to the start page.",
+    "avbrytSøknadDialog.spørsmål": "Do you want to delete your application?",
+    "avbrytSøknadDialog.tittel": "Cancel and delete application",
+    "fortsettSøknadSenereDialog.avbrytSøknadLabel": "Yes, continue later",
+    "fortsettSøknadSenereDialog.fortsettSøknadLabel": "No",
+    "fortsettSøknadSenereDialog.intro": "We will store your application for 24 hours.",
+    "fortsettSøknadSenereDialog.spørsmål": "Would you like to stop now and continue later?",
+    "fortsettSøknadSenereDialog.tittel": "Stop and continue later"
 }
