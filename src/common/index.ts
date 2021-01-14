@@ -2,6 +2,9 @@ export { default as LanguageToggle } from './components/language-toggle/Language
 export { default as VelkommenBanner } from './components/velkommen-banner/VelkommenBanner';
 export { default as Block } from './components/block/Block';
 export { default as Step } from './components/step/Step';
+export { default as SlettKnapp } from './components/slett-knapp/SlettKnapp';
+export { default as ItemList } from './components/item-list/ItemList';
+export { default as ActionLink } from './components/action-link/ActionLink';
 
 export { default as allCommonMessages } from './i18n/allCommonMessages';
 
