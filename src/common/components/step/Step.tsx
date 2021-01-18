@@ -15,6 +15,7 @@ import StepFooter from '../step-footer/StepFooter';
 interface Props {
     pageTitle: string;
     stepTitle: string;
+    kompakt: boolean;
     bannerTitle?: string;
     backLinkHref?: string;
     steps: StepIndicatorStep[];
@@ -45,6 +46,7 @@ const Step: React.FunctionComponent<Props> = ({
     children,
     previousStepTitle,
     pageAriaLabel,
+    kompakt,
 }) => {
     const currentStepIndex = steps.findIndex((s) => s.id === activeStepId);
     const bem = bemUtils('step');
@@ -79,7 +81,7 @@ const Step: React.FunctionComponent<Props> = ({
                         />
                     )}
                     <div role="presentation" aria-hidden={true}>
-                        <StepIndicator steps={steps} activeStep={currentStepIndex} />
+                        <StepIndicator kompakt={kompakt} steps={steps} activeStep={currentStepIndex} />
                     </div>
                 </>
             )}
