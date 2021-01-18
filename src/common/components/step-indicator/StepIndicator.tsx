@@ -11,11 +11,13 @@ export interface StepIndicatorStep {
 interface Props {
     activeStep: number;
     steps: StepIndicatorStep[];
+    kompakt: boolean;
+    visLabel?: boolean;
 }
 
-const StepIndicator: React.FunctionComponent<Props> = ({ steps, activeStep }) => {
+const StepIndicator: React.FunctionComponent<Props> = ({ steps, activeStep, kompakt, visLabel = false }) => {
     return (
-        <NAVStepIndicator visLabel={false} autoResponsiv={false} aktivtSteg={activeStep}>
+        <NAVStepIndicator visLabel={visLabel} autoResponsiv={false} aktivtSteg={activeStep} kompakt={kompakt}>
             {steps.map(({ id, index, label }) => {
                 return <Step index={index} label={label} key={id} />;
             })}
