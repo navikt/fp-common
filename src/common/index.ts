@@ -1,5 +1,5 @@
 export { default as LanguageToggle } from './components/language-toggle/LanguageToggle';
-export { default as VelkommenBanner } from './components/velkommen-banner/VelkommenBanner';
+export { default as Sidebanner } from './components/sidebanner/Sidebanner';
 export { default as Block } from './components/block/Block';
 export { default as Step } from './components/step/Step';
 export { default as SlettKnapp } from './components/slett-knapp/SlettKnapp';

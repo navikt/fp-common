@@ -4,7 +4,7 @@ import SpeechBubble from '../speech-bubble/SpeechBubble';
 
 import Veileder, { VeilederProps } from '../veileder/Veileder';
 
-import './velkommenBanner.less';
+import './sidebanner.less';
 
 interface Props {
     dialog?: Dialog;
@@ -16,8 +16,8 @@ interface Dialog {
     text: string | React.ReactNode;
 }
 
-const VelkommenBanner: React.FunctionComponent<Props> = ({ dialog, veileder }) => {
-    const bem = bemUtils('velkommenBanner');
+const Sidebanner: React.FunctionComponent<Props> = ({ dialog, veileder }) => {
+    const bem = bemUtils('sidebanner');
     return (
         <div className={bem.block}>
             {dialog && (
@@ -30,4 +30,4 @@ const VelkommenBanner: React.FunctionComponent<Props> = ({ dialog, veileder }) =
     );
 };
 
-export default VelkommenBanner;
+export default Sidebanner;
