@@ -107,7 +107,7 @@ export const getSisteMuligeTermindato = () =>
         .endOf('day')
         .toDate();
 
-export const getForsteMuligeTerminbekreftesesdato = (termindato?: Date | string): Date => {
+export const getForsteMuligeTerminbekreftelsesdato = (termindato?: Date | string): Date => {
     return termindato
         ? dayjs(termindato)
               .subtract(dagerForTerminbekreftelse - 1, 'days')
@@ -115,7 +115,7 @@ export const getForsteMuligeTerminbekreftesesdato = (termindato?: Date | string)
         : dayjs().subtract(1, 'years').startOf('day').toDate();
 };
 
-export const getSisteMuligeTerminbekreftesesdato = () => dayjs(new Date()).endOf('day').toDate();
+export const getSisteMuligeTerminbekreftelsesdato = () => dayjs(new Date()).endOf('day').toDate();
 
 export const dateRangesCollide = (ranges: DateRange[]): boolean => {
     if (ranges.length > 0) {
