@@ -5,7 +5,6 @@ import minMax from 'dayjs/plugin/minMax';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
 import { IntlShape } from 'react-intl';
-import Person from 'common/types/Person';
 
 dayjs.extend(isBetween);
 dayjs.extend(minMax);
@@ -29,6 +28,36 @@ export const commonFieldErrorRenderer = (intl: IntlShape, error: any): NavFronte
     }
     return error !== undefined;
 };
+
+export const createFieldValidationError = <T extends string>(
+    key: T | undefined,
+    values?: any
+): NavFrontendSkjemaFeil => {
+    return key
+        ? {
+              key,
+              values,
+          }
+        : undefined;
+};
+
+export const fieldIsRequiredError = (errorMsg = 'påkrevd') => createFieldValidationError(errorMsg);
+
+export const validateYesOrNoIsAnswered = (answer: YesOrNo, errorIntlKey?: string): NavFrontendSkjemaFeil => {
+    if (answer === YesOrNo.UNANSWERED || answer === undefined) {
+        return fieldIsRequiredError(errorIntlKey);
+    }
+    return undefined;
+};
+
+export const validateRequiredField = (value: any, errorMsg = 'påkrevd'): NavFrontendSkjemaFeil => {
+    if (!hasValue(value)) {
+        return fieldIsRequiredError(errorMsg);
+    }
+    return undefined;
+};
+
+export const hasValue = (v: any) => v !== '' && v !== undefined && v !== null;
 
 export const erIUke22Pluss3 = (dato: string) => {
     const terminDato = dayjs(dato);
@@ -55,13 +84,11 @@ export const idagEllerTidligere = (dato: string) => {
     return dayjs.max(utstedtDato, tomorrow) === tomorrow;
 };
 
-export const erMyndig = (person: Person) => {
+export const erMyndig = (fødselsdato: string) => {
     const now = dayjs();
-    const momentDate = dayjs(person.fødselsdato);
+    const momentDate = dayjs(fødselsdato);
     return now.diff(momentDate, 'years') >= 18;
 };
-
-export const erMann = (person: Person) => person.kjønn === 'M';
 
 export const getFørsteMuligeTermindato = () => dayjs().subtract(21, 'days').startOf('day').toDate();
 
@@ -69,17 +96,11 @@ interface ItemWithFom {
     fom: string;
 }
 
-export interface OpenDateRange {
+interface OpenDateRange {
     from: Date;
     to?: Date;
 }
 
-export type SkjemaelementFeil = React.ReactNode | boolean;
-
-/**
- * Siste mulige termindato ut fra dagens dato
- * - dato må bekrefte at bruker er minst i uke 22
- */
 export const getSisteMuligeTermindato = () =>
     dayjs()
         .add(dagerForTerminbekreftelse - 1, 'days')
@@ -96,23 +117,6 @@ export const getForsteMuligeTerminbekreftesesdato = (termindato?: Date | string)
 
 export const getSisteMuligeTerminbekreftesesdato = (termindato?: Date | string) =>
     dayjs(new Date()).endOf('day').toDate();
-
-const prettyDateFormatExtended = 'DD. MMM YYYY';
-
-export const prettifyDateExtended = (date: Date) => dayjs(date).format(prettyDateFormatExtended);
-
-const dateIsWithinRange = (date: Date, minDate: Date, maxDate: Date) => {
-    return dayjs(date).isBetween(minDate, maxDate, 'day', '[]');
-};
-
-export const createFieldValidationError = <T extends string>(key: T | undefined, values?: any): SkjemaelementFeil => {
-    return key
-        ? {
-              key,
-              values,
-          }
-        : undefined;
-};
 
 export const dateRangesCollide = (ranges: DateRange[]): boolean => {
     if (ranges.length > 0) {
@@ -145,10 +149,6 @@ export const dateRangesExceedsRange = (ranges: DateRange[], allowedRange: DateRa
     return false;
 };
 
-export const fieldIsRequiredError = (errorMsg = 'påkrevd') => createFieldValidationError(errorMsg);
-
-export const hasValue = (v: any) => v !== '' && v !== undefined && v !== null;
-
 export const sortDateRange = (d1: DateRange, d2: DateRange): number => {
     if (dayjs(d1.from).isSameOrBefore(d2.from)) {
         return -1;
@@ -158,20 +158,6 @@ export const sortDateRange = (d1: DateRange, d2: DateRange): number => {
 
 export const sortItemsByFom = (a: ItemWithFom, b: ItemWithFom) =>
     sortOpenDateRange({ from: dayjs(a.fom).toDate() }, { from: dayjs(b.fom).toDate() });
-
-export const validateYesOrNoIsAnswered = (answer: YesOrNo, errorIntlKey?: string): SkjemaelementFeil => {
-    if (answer === YesOrNo.UNANSWERED || answer === undefined) {
-        return fieldIsRequiredError(errorIntlKey);
-    }
-    return undefined;
-};
-
-export const validateRequiredField = (value: any, errorMsg = 'påkrevd'): SkjemaelementFeil => {
-    if (!hasValue(value)) {
-        return fieldIsRequiredError(errorMsg);
-    }
-    return undefined;
-};
 
 export const sortOpenDateRange = (d1: OpenDateRange, d2: OpenDateRange): number => {
     if (dayjs(d1.from).isSameOrBefore(d2.from)) {

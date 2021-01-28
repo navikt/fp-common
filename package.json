@@ -45,7 +45,6 @@
         "nav-frontend-typografi-style": "^1.0.26",
         "react": "^17.0.1",
         "react-aria-menubutton": "^7.0.0",
-        "react-dayjs": "^0.2.1",
         "react-dom": "^17.0.1",
         "react-intl": "^5.10.6",
         "react-scripts": "4.0.1",
