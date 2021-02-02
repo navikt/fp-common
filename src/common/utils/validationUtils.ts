@@ -14,6 +14,8 @@ dayjs.extend(isSameOrAfter);
 export const dateToday = dayjs().toDate();
 export const date1YearFromNow = dayjs().add(1, 'years').toDate();
 export const date1YearAgo = dayjs().subtract(1, 'years').toDate();
+export const attenUkerTreDager = dayjs().add(18, 'week').add(3, 'day').startOf('day').toDate();
+export const sixMonthsAgo = dayjs().subtract(6, 'month').startOf('day').toDate();
 
 const ukerAaTrekkeFraTerminDato = 18;
 const ekstraDagerAaTrekkeFraTerminDato = 3;
@@ -59,16 +61,28 @@ export const validateRequiredField = (value: any, errorMsg = 'påkrevd'): NavFro
 
 export const hasValue = (v: any) => v !== '' && v !== undefined && v !== null;
 
-export const erIUke22Pluss3 = (dato: string) => {
-    const terminDato = dayjs(dato);
-    const uke22Pluss3 = terminDato.subtract(dagerForTerminbekreftelse, 'days');
-    return dayjs.max(dayjs().startOf('day'), uke22Pluss3.startOf('day')) === dayjs();
-};
-
 export const erMindreEnn3UkerSiden = (dato: string) => {
     const terminDato = dayjs(dato);
     const datoFor3UkerSiden = dayjs().startOf('day').subtract(21, 'days');
     return dayjs.max(terminDato, datoFor3UkerSiden) === terminDato;
+};
+
+export const etterDagensDato = (dato: string) => {
+    return dayjs(dato).isAfter(dateToday);
+};
+
+export const sisteDatoBarnetKanVæreFødt = (dato: string) => {
+    return dayjs(dato).isBefore(sixMonthsAgo);
+};
+
+export const sisteMuligeTermindato = (dato: string) => {
+    return dayjs(dato).isAfter(attenUkerTreDager);
+};
+
+export const erIUke22Pluss3 = (dato: string) => {
+    const terminDato = dayjs(dato);
+    const uke22Pluss3 = terminDato.subtract(dagerForTerminbekreftelse, 'days');
+    return dayjs.max(dayjs().startOf('day'), uke22Pluss3.startOf('day')) === dayjs();
 };
 
 export const utstedtDatoErIUke22 = (utstedtDatoString: string, terminDatoString: string) => {
