@@ -5,6 +5,7 @@ export { default as Step } from './components/step/Step';
 export { default as SlettKnapp } from './components/slett-knapp/SlettKnapp';
 export { default as ItemList } from './components/item-list/ItemList';
 export { default as ActionLink } from './components/action-link/ActionLink';
+export { default as DisplayTextWithLabel } from './components/display-text-with-label/DisplayTextWithLabel';
 
 export { default as allCommonMessages } from './i18n/allCommonMessages';
 
