@@ -1,7 +1,7 @@
 import React from 'react';
 import { Element } from 'nav-frontend-typografi';
 import bemUtils from './../../utils/bemUtils';
-import StatusIkon, { StatusKey } from 'common/assets/status-ikon/StatusIkon';
+import StatusIkon, { StatusKey } from './../../assets/status-ikon/StatusIkon';
 
 interface Props {
     image: React.ReactNode;
