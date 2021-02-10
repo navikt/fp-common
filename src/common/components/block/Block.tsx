@@ -10,11 +10,19 @@ interface BlockProps {
     padBottom?: BlockMargin;
     textAlignCenter?: boolean;
     className?: string;
+    visible?: boolean;
 }
 
 const bem = bemHelper('block');
 
-const Block: React.FunctionComponent<BlockProps> = ({ margin, padBottom, className, textAlignCenter, children }) => {
+const Block: React.FunctionComponent<BlockProps> = ({
+    margin,
+    padBottom,
+    className,
+    textAlignCenter,
+    visible = true,
+    children,
+}) => {
     const classNames = bem.classNames(
         bem.block,
         bem.modifierConditional(margin, margin !== undefined),
@@ -24,6 +32,11 @@ const Block: React.FunctionComponent<BlockProps> = ({ margin, padBottom, classNa
             [`${className}`]: className !== undefined,
         }
     );
+
+    if (!visible) {
+        return null;
+    }
+
     return <div className={classNames}>{children}</div>;
 };
 
