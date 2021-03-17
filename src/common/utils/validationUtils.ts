@@ -79,6 +79,27 @@ export const sisteMuligeTermindato = (dato: string) => {
     return dayjs(dato).isAfter(attenUkerTreDager);
 };
 
+export const barnetErMerEnn15årPåSøknadsDato = (dato: string, adopsjonsdato: string) => {
+    const fødselsdato = dayjs(dato);
+    const adopsjonsDato = dayjs(adopsjonsdato);
+    const datoBarnetFyllerFemten = dayjs(fødselsdato).startOf('day').add(15, 'year');
+    return dayjs(adopsjonsDato).isBetween(fødselsdato, datoBarnetFyllerFemten, null, '[]');
+};
+
+export const barnetErIkkeFødtFørAdopsjonsDato = (dato: string, adopsjonsdato: string) => {
+    return dayjs(adopsjonsdato).isBefore(dato);
+};
+
+export const sisteDatoAdoptertBarnKanVæreFødt = (dato: string, adopsjonsdato: string) => {
+    const datoBarnetFyllerFemten = dayjs(dato).add(15, 'year').startOf('day').toDate();
+    return dayjs(adopsjonsdato).isAfter(datoBarnetFyllerFemten);
+};
+
+export const sisteMuligeDatoForOvertaOmsorg = (dato: string) => {
+    const sisteDatoForOvertaOmsorg = dayjs().add(1, 'year').startOf('day').toDate();
+    return dayjs(dato).isAfter(sisteDatoForOvertaOmsorg);
+};
+
 export const erIUke22Pluss3 = (dato: string) => {
     const terminDato = dayjs(dato);
     const uke22Pluss3 = terminDato.subtract(dagerForTerminbekreftelse, 'days');
