@@ -43,12 +43,12 @@
         "nav-frontend-stegindikator": "^0.0.65",
         "nav-frontend-typografi": "^2.0.20",
         "nav-frontend-typografi-style": "^1.0.26",
-        "react": "^17.0.1",
+        "react": "^16.12.0 || ^17.0.0",
         "react-aria-menubutton": "^7.0.0",
         "react-collapse": "^5.1.0",
         "react-dom": "^17.0.1",
-        "react-intl": "^5.10.6",
-        "react-scripts": "4.0.1",
+        "react-intl": "^5.4.5",
+        "react-scripts": "^4.x",
         "typescript": "^4.1.2"
     },
     "devDependencies": {
