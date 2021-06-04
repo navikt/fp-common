@@ -1,4 +1,4 @@
-import { Tidsperiode, TidsperiodeMedValgfriSluttdato } from 'common/types/Tidsperiode';
+import { Tidsperiode, TidsperiodeMedValgfriSluttdato } from './../types/Tidsperiode';
 import dayjs from 'dayjs';
 
 const dateFormat = 'DD.MM.YYYY';
