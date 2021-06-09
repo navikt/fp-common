@@ -57,7 +57,7 @@ export const sisteMuligeTermindato = (dato: string) => {
     return dayjs(dato).isAfter(attenUkerTreDager);
 };
 
-export const barnetErMerEnn15årPåSøknadsDato = (dato: string, adopsjonsdato: string) => {
+export const barnetErUnder15årPåAdopsjonsdato = (dato: string, adopsjonsdato: string) => {
     const fødselsdato = dayjs(dato);
     const adopsjonsDato = dayjs(adopsjonsdato);
     const datoBarnetFyllerFemten = dayjs(fødselsdato).startOf('day').add(15, 'year');
