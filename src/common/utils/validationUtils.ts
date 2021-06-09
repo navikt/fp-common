@@ -21,41 +21,19 @@ const ukerAaTrekkeFraTerminDato = 18;
 const ekstraDagerAaTrekkeFraTerminDato = 3;
 const dagerForTerminbekreftelse = ukerAaTrekkeFraTerminDato * 7 + ekstraDagerAaTrekkeFraTerminDato;
 
-export const commonFieldErrorRenderer = (intl: IntlShape, error: any): NavFrontendSkjemaFeil => {
-    if (typeof error === 'object' && error.key !== undefined) {
-        return intl.formatMessage({ id: error.key }, error.values);
-    }
-    if (typeof error === 'string') {
-        return error;
-    }
-    return error !== undefined;
-};
-
-export const createFieldValidationError = <T extends string>(
-    key: T | undefined,
-    values?: any
-): NavFrontendSkjemaFeil => {
-    return key
-        ? {
-              key,
-              values,
-          }
-        : undefined;
-};
-
-export const fieldIsRequiredError = (errorMsg = 'påkrevd') => createFieldValidationError(errorMsg);
-
-export const validateYesOrNoIsAnswered = (answer: YesOrNo, errorIntlKey?: string): NavFrontendSkjemaFeil => {
+export const validateYesOrNoIsAnswered = (answer: YesOrNo, errorIntlKey: string): NavFrontendSkjemaFeil => {
     if (answer === YesOrNo.UNANSWERED || answer === undefined) {
-        return fieldIsRequiredError(errorIntlKey);
+        return errorIntlKey;
     }
+
     return undefined;
 };
 
-export const validateRequiredField = (value: any, errorMsg = 'påkrevd'): NavFrontendSkjemaFeil => {
+export const validateRequiredField = (value: any, errorMsg: string): NavFrontendSkjemaFeil => {
     if (!hasValue(value)) {
-        return fieldIsRequiredError(errorMsg);
+        return errorMsg;
     }
+
     return undefined;
 };
 
