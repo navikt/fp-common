@@ -81,7 +81,7 @@ export const sisteMuligeDatoForOvertaOmsorg = (dato: string) => {
 export const erIUke22Pluss3 = (dato: string) => {
     const terminDato = dayjs(dato);
     const uke22Pluss3 = terminDato.subtract(dagerForTerminbekreftelse, 'days');
-    return dayjs.max(dayjs().startOf('day'), uke22Pluss3.startOf('day')) === dayjs();
+    return dayjs.max(dayjs().startOf('day'), uke22Pluss3.startOf('day')) === dayjs().startOf('day');
 };
 
 export const utstedtDatoErIUke22 = (utstedtDatoString: string, terminDatoString: string) => {
