@@ -14,6 +14,8 @@
         "patchit": "npm-run-all build-lib patch do-publish",
         "minor": "npm version minor",
         "bumpit": "npm-run-all build-lib minor do-publish",
+        "major": "npm version major",
+        "breakit": "npm-run-all build-lib major do-publish",
         "compile-lib-script": "tsc -p tsconfig-build-lib.json",
         "copy-files-to-lib": "copyfiles -u 2 \"src/common/**/*.less\" lib/ && copyfiles -u 2 \"src/common/**/*.json\" lib/"
     },
