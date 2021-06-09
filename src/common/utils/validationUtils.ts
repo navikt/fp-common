@@ -21,7 +21,7 @@ const ukerAaTrekkeFraTerminDato = 18;
 const ekstraDagerAaTrekkeFraTerminDato = 3;
 const dagerForTerminbekreftelse = ukerAaTrekkeFraTerminDato * 7 + ekstraDagerAaTrekkeFraTerminDato;
 
-export const validateYesOrNoIsAnswered = (answer: YesOrNo, errorIntlKey: string): NavFrontendSkjemaFeil => {
+export const validateYesOrNoIsAnswered = (answer: YesOrNo, errorIntlKey: string): string | undefined => {
     if (answer === YesOrNo.UNANSWERED || answer === undefined) {
         return errorIntlKey;
     }
@@ -29,7 +29,7 @@ export const validateYesOrNoIsAnswered = (answer: YesOrNo, errorIntlKey: string)
     return undefined;
 };
 
-export const validateRequiredField = (value: any, errorMsg: string): NavFrontendSkjemaFeil => {
+export const validateRequiredField = (value: any, errorMsg: string): string | undefined => {
     if (!hasValue(value)) {
         return errorMsg;
     }
