@@ -4,7 +4,6 @@ import isBetween from 'dayjs/plugin/isBetween';
 import minMax from 'dayjs/plugin/minMax';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
-import { IntlShape } from 'react-intl';
 
 dayjs.extend(isBetween);
 dayjs.extend(minMax);
