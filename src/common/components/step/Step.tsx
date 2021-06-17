@@ -5,7 +5,6 @@ import bemUtils from './../../utils/bemUtils';
 import Page from '../page/Page';
 import StepIndicator, { StepIndicatorStep } from '../step-indicator/StepIndicator';
 import StepBanner from '../step-banner/StepBanner';
-import { FormikValidationErrorSummary } from '@navikt/sif-common-formik/lib';
 import Block from '../block/Block';
 
 import './step.less';
@@ -23,7 +22,6 @@ interface Props {
     previousStepTitle?: string;
     children: React.ReactNode;
     showStepIndicator?: boolean;
-    useValidationErrorSummary?: boolean;
     topContentRenderer?: () => React.ReactElement<any>;
     onCancel?: () => void;
     onContinueLater?: () => void;
@@ -38,7 +36,6 @@ const Step: React.FunctionComponent<Props> = ({
     backLinkHref,
     steps,
     activeStepId,
-    useValidationErrorSummary,
     onCancel,
     onContinueLater,
     cancelOrContinueLaterAriaLabel,
@@ -63,7 +60,6 @@ const Step: React.FunctionComponent<Props> = ({
                             <StepBanner text={bannerTitle} />
                         </>
                     )}
-                    {useValidationErrorSummary !== false && <FormikValidationErrorSummary />}
                 </>
             )}
         >
