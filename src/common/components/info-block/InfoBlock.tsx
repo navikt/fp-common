@@ -1,6 +1,8 @@
 import bemUtils from './../../utils/bemUtils';
 import React, { FunctionComponent } from 'react';
 
+import './infoBlock.less';
+
 interface InfoBlockProps {
     children: React.ReactNode;
 }
