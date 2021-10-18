@@ -1,4 +1,4 @@
-import { bemUtils } from 'common';
+import bemUtils from './../../utils/bemUtils';
 import React, { FunctionComponent } from 'react';
 
 interface InfoBlockProps {
