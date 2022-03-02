@@ -76,18 +76,17 @@ const Step: React.FunctionComponent<Props> = ({
                             }}
                         />
                     )}
+                    <Block padBottom="l">
+                        <Systemtittel className={bem.element('title')} tag="h1">
+                            {stepTitle}
+                        </Systemtittel>
+                    </Block>
                     <div role="presentation" aria-hidden={true}>
                         <StepIndicator kompakt={kompakt} steps={steps} activeStep={currentStepIndex} />
                     </div>
                 </>
             )}
             <section aria-label={`Steg ${currentStepIndex + 1} av ${steps.length}:  ${pageTitle}`}>
-                <Block margin="xxl">
-                    <Systemtittel className={bem.element('title')} tag="h1">
-                        {stepTitle}
-                    </Systemtittel>
-                </Block>
-
                 <Block margin="xl">{children}</Block>
 
                 {(onCancel || onContinueLater) && (
