@@ -1,15 +1,15 @@
 import React from 'react';
-import { History } from 'history';
 import { Systemtittel } from 'nav-frontend-typografi';
 import bemUtils from './../../utils/bemUtils';
 import Page from '../page/Page';
 import StepIndicator, { StepIndicatorStep } from '../step-indicator/StepIndicator';
 import StepBanner from '../step-banner/StepBanner';
 import Block from '../block/Block';
-
-import './step.less';
 import BackLink from '../back-link/BackLink';
 import StepFooter from '../step-footer/StepFooter';
+import { useNavigate } from 'react-router-dom';
+
+import './step.less';
 
 interface Props {
     pageTitle: string;
@@ -47,6 +47,7 @@ const Step: React.FunctionComponent<Props> = ({
 }) => {
     const currentStepIndex = steps.findIndex((s) => s.id === activeStepId);
     const bem = bemUtils('step');
+    const navigate = useNavigate();
 
     return (
         <Page
@@ -70,9 +71,9 @@ const Step: React.FunctionComponent<Props> = ({
                             href={backLinkHref}
                             ariaLabel={previousStepTitle}
                             className={bem.element('backLink')}
-                            onClick={(nextHref: string, history: History, event: React.SyntheticEvent) => {
+                            onClick={(nextHref: string, event: React.SyntheticEvent) => {
                                 event.preventDefault();
-                                history.push(nextHref);
+                                navigate(nextHref);
                             }}
                         />
                     )}

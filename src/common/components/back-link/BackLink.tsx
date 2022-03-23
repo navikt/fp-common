@@ -1,7 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
-import { RouteComponentProps, withRouter } from 'react-router-dom';
-import { History } from 'history';
+import { useNavigate } from 'react-router-dom';
 import Chevron from 'nav-frontend-chevron';
 import Lenke from 'nav-frontend-lenker';
 import bemUtils from '../../utils/bemUtils';
@@ -12,25 +11,19 @@ interface BackLinkProps {
     className?: string;
     href: string;
     ariaLabel?: string;
-    onClick?: (href: string, history: History, event: React.SyntheticEvent) => void;
+    onClick?: (href: string, event: React.SyntheticEvent) => void;
 }
 
-const BackLink: React.FunctionComponent<BackLinkProps & RouteComponentProps> = ({
-    className,
-    href,
-    history,
-    onClick,
-    ariaLabel,
-}) => {
-    const navigate = () => history.push(href);
+const BackLink: React.FunctionComponent<BackLinkProps> = ({ className, href, onClick, ariaLabel }) => {
+    const navigate = useNavigate();
     const bem = bemUtils('backLink');
 
     const handleOnClick = (event: React.SyntheticEvent) => {
         if (onClick) {
-            onClick(href, history, event);
+            onClick(href, event);
         } else {
             event.preventDefault();
-            navigate();
+            navigate(href);
         }
     };
 
@@ -44,4 +37,4 @@ const BackLink: React.FunctionComponent<BackLinkProps & RouteComponentProps> = (
     );
 };
 
-export default withRouter(BackLink);
+export default BackLink;
