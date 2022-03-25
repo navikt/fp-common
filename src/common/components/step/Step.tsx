@@ -7,7 +7,6 @@ import StepBanner from '../step-banner/StepBanner';
 import Block from '../block/Block';
 import BackLink from '../back-link/BackLink';
 import StepFooter from '../step-footer/StepFooter';
-import { useNavigate } from 'react-router-dom';
 
 import './step.less';
 
@@ -17,6 +16,7 @@ interface Props {
     kompakt: boolean;
     bannerTitle?: string;
     backLinkHref?: string;
+    backLinkOnClick?: (href: string, event: React.SyntheticEvent) => void;
     steps: StepIndicatorStep[];
     activeStepId: string;
     previousStepTitle?: string;
@@ -34,6 +34,7 @@ const Step: React.FunctionComponent<Props> = ({
     pageTitle,
     stepTitle,
     backLinkHref,
+    backLinkOnClick,
     steps,
     activeStepId,
     onCancel,
@@ -47,7 +48,6 @@ const Step: React.FunctionComponent<Props> = ({
 }) => {
     const currentStepIndex = steps.findIndex((s) => s.id === activeStepId);
     const bem = bemUtils('step');
-    const navigate = useNavigate();
 
     return (
         <Page
@@ -66,17 +66,6 @@ const Step: React.FunctionComponent<Props> = ({
         >
             {(showStepIndicator || backLinkHref) && (
                 <>
-                    {backLinkHref && (
-                        <BackLink
-                            href={backLinkHref}
-                            ariaLabel={previousStepTitle}
-                            className={bem.element('backLink')}
-                            onClick={(nextHref: string, event: React.SyntheticEvent) => {
-                                event.preventDefault();
-                                navigate(nextHref);
-                            }}
-                        />
-                    )}
                     <Block padBottom="l">
                         <Systemtittel className={bem.element('title')} tag="h1">
                             {stepTitle}
@@ -85,6 +74,14 @@ const Step: React.FunctionComponent<Props> = ({
                     <div role="presentation" aria-hidden={true}>
                         <StepIndicator kompakt={kompakt} steps={steps} activeStep={currentStepIndex} />
                     </div>
+                    {backLinkHref && (
+                        <BackLink
+                            href={backLinkHref}
+                            ariaLabel={previousStepTitle}
+                            className={bem.element('backLink')}
+                            onClick={backLinkOnClick}
+                        />
+                    )}
                 </>
             )}
             <section aria-label={`Steg ${currentStepIndex + 1} av ${steps.length}:  ${pageTitle}`}>
