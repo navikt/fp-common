@@ -27,6 +27,7 @@ interface Props {
     onContinueLater?: () => void;
     cancelOrContinueLaterAriaLabel?: string;
     pageAriaLabel?: string;
+    infoMessage?: React.ReactNode;
 }
 
 const Step: React.FunctionComponent<Props> = ({
@@ -45,6 +46,7 @@ const Step: React.FunctionComponent<Props> = ({
     previousStepTitle,
     pageAriaLabel,
     kompakt,
+    infoMessage,
 }) => {
     const currentStepIndex = steps.findIndex((s) => s.id === activeStepId);
     const bem = bemUtils('step');
@@ -64,6 +66,7 @@ const Step: React.FunctionComponent<Props> = ({
                 </>
             )}
         >
+            {infoMessage !== undefined && <div className={bem.element('infoMessage')}>{infoMessage}</div>}
             {(showStepIndicator || backLinkHref) && (
                 <>
                     <Block padBottom="l">
