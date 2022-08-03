@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { EtikettLiten, Element } from 'nav-frontend-typografi';
+import { Element, Normaltekst } from 'nav-frontend-typografi';
 
 import './displayTextWithLabel.less';
 
@@ -10,14 +10,14 @@ interface Props {
 
 const DisplayTextWithLabel: React.FunctionComponent<Props> = (props) => (
     <div className="textWithLabel">
-        {props.label && <EtikettLiten className="textWithLabel__label">{props.label}</EtikettLiten>}
+        {props.label && <Element className="textWithLabel__label">{props.label}</Element>}
         {Array.isArray(props.text) &&
             props.text.map((textElement, index) => (
-                <Element key={`${textElement}-${index}`} className="textWithLabel__text">
+                <Normaltekst key={`${textElement}-${index}`} className="textWithLabel__text">
                     {textElement}
-                </Element>
+                </Normaltekst>
             ))}
-        {!Array.isArray(props.text) && <Element className="textWithLabel__text">{props.text}</Element>}
+        {!Array.isArray(props.text) && <Normaltekst className="textWithLabel__text">{props.text}</Normaltekst>}
     </div>
 );
 export default DisplayTextWithLabel;
