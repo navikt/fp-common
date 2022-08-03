@@ -11,6 +11,7 @@ interface PageProps {
     id?: string;
     ariaLabel?: string;
     topContentRenderer?: () => React.ReactElement<any>;
+    children: React.ReactNode;
 }
 
 const Page: React.FunctionComponent<PageProps> = ({

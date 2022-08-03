@@ -5,6 +5,7 @@ interface Props {
     className?: string;
     onClick: () => void;
     ariaLabel?: string;
+    children: React.ReactNode;
 }
 
 const stopClickEvent = (evt: React.MouseEvent<HTMLAnchorElement>) => {

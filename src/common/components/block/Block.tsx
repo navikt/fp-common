@@ -11,6 +11,7 @@ interface BlockProps {
     textAlignCenter?: boolean;
     className?: string;
     visible?: boolean;
+    children: React.ReactNode;
 }
 
 const bem = bemHelper('block');

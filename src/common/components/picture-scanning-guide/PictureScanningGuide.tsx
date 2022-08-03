@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 import Lenke from 'nav-frontend-lenker';

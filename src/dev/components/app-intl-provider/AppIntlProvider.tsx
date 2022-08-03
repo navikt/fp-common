@@ -6,6 +6,7 @@ import { appMessages } from './messages';
 export interface IntlProviderProps {
     locale: string;
     onError?: (error: any) => void;
+    children: React.ReactNode;
 }
 
 const AppIntlProvider: React.FunctionComponent<IntlProviderProps> = ({ locale, onError, children }) => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React from 'react';
 import NAVStepIndicator from 'nav-frontend-stegindikator/lib/stegindikator';
 import Step from 'nav-frontend-stegindikator/lib/stegindikator-steg';

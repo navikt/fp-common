@@ -8,6 +8,7 @@ export type BannerSize = 'small' | 'large' | 'xlarge';
 interface BannerProps {
     size: BannerSize;
     className?: string;
+    children: React.ReactNode;
 }
 
 const bem = bemHelper('banner');
