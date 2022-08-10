@@ -1,6 +1,6 @@
-const commonMessagesNb = require('./common.nb.json');
-const commonMessagesNn = require('./common.nn.json');
-const commonMessagesEn = require('./common.en.json');
+import commonMessagesNb from './common.nb.json';
+import commonMessagesNn from './common.nn.json';
+import commonMessagesEn from './common.en.json';
 
 const bokmålstekster = {
     ...commonMessagesNb,
