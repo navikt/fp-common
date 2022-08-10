@@ -2,20 +2,19 @@ import React, { useState } from 'react';
 import { guid } from 'nav-frontend-js-utils';
 import InfoToggler from './InfoToggler';
 import EkspanderbartInnhold from './EkspanderbartInnhold';
-import { Normaltekst } from 'nav-frontend-typografi';
 import { useIntl } from 'react-intl';
 import intlHelper from './../../utils/intlUtils';
-
+import { BodyLong } from '@navikt/ds-react';
 import './utvidetInformasjon.less';
 
-interface Props {
+export interface UtvidetInformasjonProps {
     children: React.ReactNode;
     erApen?: boolean;
     apneLabel?: React.ReactNode;
     lukkLabel?: React.ReactNode;
 }
 
-const UtvidetInformasjon: React.FunctionComponent<Props> = ({ children, erApen, apneLabel }) => {
+const UtvidetInformasjon: React.FunctionComponent<UtvidetInformasjonProps> = ({ children, erApen, apneLabel }) => {
     const intl = useIntl();
     const innholdId = guid();
     const [apen, setApen] = useState<boolean>(erApen || false);
@@ -25,7 +24,7 @@ const UtvidetInformasjon: React.FunctionComponent<Props> = ({ children, erApen, 
         <div className="utvidetInformasjon">
             <div className="utvidetInformasjon__toggler no-print">
                 <InfoToggler onToggle={() => setApen(!apen)} apen={apen}>
-                    <Normaltekst tag="span">{apen ? lukkLabel : apneLabel}</Normaltekst>
+                    <BodyLong>{apen ? lukkLabel : apneLabel}</BodyLong>
                 </InfoToggler>
             </div>
             <div className="utvidetInformasjon__innhold" id={innholdId}>
