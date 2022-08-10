@@ -1,31 +1,32 @@
+import { Heading } from '@navikt/ds-react';
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import Undertittel from 'nav-frontend-typografi/lib/undertittel';
 import intlHelper from '../../../utils/intlUtils';
 import BekreftDialog from '../bekreft-dialog/BekreftDialog';
 
-export interface Props {
+export interface AvbrytSøknadDialogProps {
     synlig: boolean;
     onAvbrytSøknad: () => void;
     onFortsettSøknad: () => void;
 }
 
-const AvbrytSøknadDialog: React.FunctionComponent<Props> = (props) => {
+// Kan ikke ha ø i fil- eller foldernavn pga Storybook vite-builder
+const AvbrytSøknadDialog: React.FunctionComponent<AvbrytSøknadDialogProps> = (props) => {
     const intl = useIntl();
     const { synlig, onFortsettSøknad, onAvbrytSøknad } = props;
     return (
         <BekreftDialog
-            isOpen={synlig}
+            open={synlig}
             bekreftLabel={intlHelper(intl, 'avbrytSøknadDialog.avbrytSøknadLabel')}
             avbrytLabel={intlHelper(intl, 'avbrytSøknadDialog.fortsettSøknadLabel')}
             closeButton={false}
-            contentLabel={intlHelper(intl, 'avbrytSøknadDialog.tittel')}
+            aria-label={intlHelper(intl, 'avbrytSøknadDialog.tittel')}
             onBekreft={onAvbrytSøknad}
-            størrelse="30"
-            onRequestClose={onFortsettSøknad}>
-            <Undertittel tag="h1">
+            onClose={onFortsettSøknad}
+        >
+            <Heading level="1" size="small">
                 <FormattedMessage id="avbrytSøknadDialog.tittel" />
-            </Undertittel>
+            </Heading>
             <p>
                 <FormattedMessage id="avbrytSøknadDialog.intro" />
             </p>
@@ -35,4 +36,5 @@ const AvbrytSøknadDialog: React.FunctionComponent<Props> = (props) => {
         </BekreftDialog>
     );
 };
+
 export default AvbrytSøknadDialog;

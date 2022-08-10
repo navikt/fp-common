@@ -6,7 +6,7 @@ import SlettKnapp from '../slett-knapp/SlettKnapp';
 
 import './itemList.less';
 
-interface Props<T> {
+export interface ItemListProps<T> {
     items: T[];
     getItemId: (item: T) => string | undefined;
     getItemTitle: (item: T) => string;
@@ -19,7 +19,15 @@ interface Props<T> {
 const bem = bemUtils('itemList');
 const bemItem = bem.child('item');
 
-function ItemList<T>({ items, onDelete, onEdit, labelRenderer, iconRender, getItemId, getItemTitle }: Props<T>) {
+function ItemList<T>({
+    items,
+    onDelete,
+    onEdit,
+    labelRenderer,
+    iconRender,
+    getItemId,
+    getItemTitle,
+}: ItemListProps<T>) {
     return (
         <ol className={bem.classNames(bem.block)}>
             {items.map((item) => {

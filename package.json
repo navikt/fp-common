@@ -23,6 +23,9 @@
         "copy-files-to-lib": "copyfiles -u 2 \"src/common/**/*.less\" lib/ && copyfiles -u 2 \"src/common/**/*.json\" lib/"
     },
     "dependencies": {
+        "@navikt/ds-css": "1.0.0-rc.7",
+        "@navikt/ds-icons": "1.0.0-rc.6",
+        "@navikt/ds-react": "1.0.0-rc.7",
         "@navikt/fnrvalidator": "^1.3.0",
         "@navikt/sif-common-formik": "^23.1.0",
         "@types/node": "^18.6.4",
@@ -73,13 +76,18 @@
     },
     "devDependencies": {
         "@originjs/vite-plugin-commonjs": "^1.0.3",
+        "@storybook/addon-essentials": "^6.5.10",
+        "@storybook/addon-interactions": "^6.5.10",
+        "@storybook/addon-links": "^6.5.10",
         "@storybook/builder-vite": "^0.2.2",
+        "@storybook/react": "^6.5.10",
         "@types/classnames": "^2.3.1",
         "@types/react-aria-menubutton": "^6.2.9",
         "@types/react-collapse": "^5.0.1",
         "copyfiles": "^2.4.1",
         "less": "^4.1.3",
         "npm-run-all": "^4.1.5",
+        "storybook-react-intl": "^1.1.1",
         "vite": "^3.0.4",
         "vite-plugin-checker": "^0.4.9"
     },

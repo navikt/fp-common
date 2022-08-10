@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite';
-import tscPlugin from 'vite-plugin-tsc';
 import react from '@vitejs/plugin-react';
 import Checker from 'vite-plugin-checker';
 import path from 'path';

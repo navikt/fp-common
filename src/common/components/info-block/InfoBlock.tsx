@@ -3,7 +3,7 @@ import React, { FunctionComponent } from 'react';
 
 import './infoBlock.less';
 
-interface InfoBlockProps {
+export interface InfoBlockProps {
     children: React.ReactNode;
 }
 

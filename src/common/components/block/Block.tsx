@@ -5,7 +5,7 @@ import './block.less';
 
 type BlockMargin = 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl' | 'none';
 
-interface BlockProps {
+export interface BlockProps {
     margin?: BlockMargin;
     padBottom?: BlockMargin;
     textAlignCenter?: boolean;

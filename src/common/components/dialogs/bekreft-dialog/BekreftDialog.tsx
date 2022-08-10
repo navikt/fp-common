@@ -1,50 +1,46 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
-import classnames from 'classnames';
-import { Knapp } from 'nav-frontend-knapper';
-import Modal, { ModalProps } from 'nav-frontend-modal';
-import { Normaltekst, Systemtittel } from 'nav-frontend-typografi';
-import bemUtils from '../../../utils/bemUtils';
-import intlHelper from '../../../utils/intlUtils';
-import Knapperad from '../../knapperad/Knapperad';
+import { Button, Heading, Modal, ModalProps } from '@navikt/ds-react';
+import Block from '../../block/Block';
 
-import './bekreftDialog.less';
-
-export interface Props extends ModalProps {
+export interface BekreftDialogProps extends ModalProps {
     tittel?: string;
     onBekreft: () => void;
     onAvbryt?: () => void;
-    bekreftLabel?: string;
-    avbrytLabel?: string;
-    størrelse?: '30';
+    bekreftLabel: string;
+    avbrytLabel: string;
 }
-const bem = bemUtils('bekreftDialog');
-const BekreftDialog: React.FunctionComponent<Props> = (props) => {
-    const intl = useIntl();
-    const { tittel, onAvbryt, onBekreft, avbrytLabel, bekreftLabel, children, størrelse, ...modalProps } = props;
+
+const BekreftDialog: React.FunctionComponent<BekreftDialogProps> = (props) => {
+    const { tittel, onAvbryt, onBekreft, avbrytLabel, bekreftLabel, children, ...modalProps } = props;
+
     return (
-        <Modal
-            {...modalProps}
-            className={classnames(bem.block, størrelse ? bem.modifier(`size-${størrelse}`) : undefined)}
-        >
-            {props.isOpen && (
-                <Normaltekst tag="div">
-                    {tittel && <Systemtittel className="blokk-s">{tittel}</Systemtittel>}
-                    <div className="blokk-m">{children}</div>
-                    <Knapperad>
-                        <Knapp type="hoved" onClick={() => onBekreft()} className="bekreftDialog__bekreftKnapp">
-                            {bekreftLabel || intlHelper(intl, 'komponent.bekreftDialog.bekreftLabel')}
-                        </Knapp>
-                        <Knapp
-                            type="flat"
-                            onClick={() => (onAvbryt ? onAvbryt() : props.onRequestClose())}
-                            className="bekreftDialog__avbrytKnapp"
-                        >
-                            {avbrytLabel || intlHelper(intl, 'komponent.bekreftDialog.avbrytLabel')}
-                        </Knapp>
-                    </Knapperad>
-                </Normaltekst>
-            )}
+        <Modal {...modalProps} closeButton={false}>
+            <Modal.Content>
+                {tittel && (
+                    <Heading level="2" size="medium">
+                        {tittel}
+                    </Heading>
+                )}
+                <Block padBottom="m">{children}</Block>
+                <div style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+                    <Button
+                        type="button"
+                        variant="primary"
+                        onClick={() => onBekreft()}
+                        className="bekreftDialog__bekreftKnapp"
+                    >
+                        {bekreftLabel}
+                    </Button>
+                    <Button
+                        type="button"
+                        variant="secondary"
+                        onClick={() => (onAvbryt ? onAvbryt() : props.onClose())}
+                        className="bekreftDialog__avbrytKnapp"
+                    >
+                        {avbrytLabel}
+                    </Button>
+                </div>
+            </Modal.Content>
         </Modal>
     );
 };

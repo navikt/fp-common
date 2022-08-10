@@ -5,7 +5,7 @@ import intlHelper from '../../utils/intlUtils';
 
 import './page.less';
 
-interface PageProps {
+export interface PageProps {
     className?: string;
     title: string;
     id?: string;
