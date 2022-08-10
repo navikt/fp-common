@@ -1,6 +1,5 @@
 import { LanguageToggle, Sidebanner } from 'common';
 import AppIntlProvider from 'dev/components/app-intl-provider/AppIntlProvider';
-import React from 'react';
 
 const App = () => {
     return (
