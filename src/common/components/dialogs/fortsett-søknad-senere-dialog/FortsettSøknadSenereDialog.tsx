@@ -1,8 +1,6 @@
+import { Heading } from '@navikt/ds-react';
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-
-import Undertittel from 'nav-frontend-typografi/lib/undertittel';
-
 import intlHelper from '../../../utils/intlUtils';
 import BekreftDialog from '../bekreft-dialog/BekreftDialog';
 
@@ -17,17 +15,17 @@ const FortsettSøknadSenereDialog: React.FunctionComponent<Props> = (props) => {
     const { synlig, onFortsettSøknad, onFortsettSøknadSenere } = props;
     return (
         <BekreftDialog
-            isOpen={synlig}
+            open={synlig}
             bekreftLabel={intlHelper(intl, 'fortsettSøknadSenereDialog.avbrytSøknadLabel')}
             avbrytLabel={intlHelper(intl, 'fortsettSøknadSenereDialog.fortsettSøknadLabel')}
             closeButton={false}
-            contentLabel={intlHelper(intl, 'fortsettSøknadSenereDialog.tittel')}
+            aria-label={intlHelper(intl, 'fortsettSøknadSenereDialog.tittel')}
             onBekreft={onFortsettSøknadSenere}
-            størrelse="30"
-            onRequestClose={onFortsettSøknad}>
-            <Undertittel tag="h1">
+            onClose={onFortsettSøknad}
+        >
+            <Heading size="small">
                 <FormattedMessage id="fortsettSøknadSenereDialog.tittel" />
-            </Undertittel>
+            </Heading>
             <p>
                 <FormattedMessage id="fortsettSøknadSenereDialog.intro" />
             </p>

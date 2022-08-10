@@ -1,5 +1,5 @@
+import { Heading } from '@navikt/ds-react';
 import React from 'react';
-import { Element } from 'nav-frontend-typografi';
 import bemUtils from '../../utils/bemUtils';
 
 import './speechBubble.less';
@@ -17,7 +17,9 @@ const SpeechBubble: React.FunctionComponent<Props> = ({ title = null, text }) =>
             <div className={bem.element('content')}>
                 {title && (
                     <div className={`${bem.element('title')} capitalizeName`}>
-                        <Element style={{ margin: '0' }}>{title}</Element>
+                        <Heading size="small" as="p" style={{ margin: '0' }}>
+                            {title}
+                        </Heading>
                     </div>
                 )}
                 <div className={bem.element('text')}>{text}</div>
