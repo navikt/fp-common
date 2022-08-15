@@ -12,7 +12,7 @@
         "forceConsistentCasingInFileNames": true,
         "resolveJsonModule": true,
         "isolatedModules": true,
-        "jsx": "react",
+        "jsx": "react-jsx",
         "removeComments": true,
         "strictNullChecks": true,
         "noImplicitAny": false,
@@ -23,5 +23,5 @@
         "sourceMap": true
     },
     "include": ["src/common"],
-    "exclude": ["node_modules", "src/dev"]
+    "exclude": ["node_modules", "src/dev", "src/**/*.stories.tsx"]
 }
