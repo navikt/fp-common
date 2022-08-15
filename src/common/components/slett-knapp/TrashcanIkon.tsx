@@ -1,5 +1,3 @@
-import React from 'react';
-
 const TrashcanIkon = (props: any) => (
     <svg focusable="false" role="presentation" width="24" height="24" viewBox="0 0 24 24" {...props}>
         <path

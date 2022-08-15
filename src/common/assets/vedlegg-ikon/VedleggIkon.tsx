@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 const VedleggIkon = (props: any) => (
     <svg focusable="false" role="presentation" width={20} height={20} {...props}>
         <path

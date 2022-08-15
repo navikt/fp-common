@@ -1,23 +1,22 @@
-import * as React from 'react';
-import { Element, Normaltekst } from 'nav-frontend-typografi';
+import { BodyShort, Heading } from '@navikt/ds-react';
 
-import './displayTextWithLabel.less';
-
-interface Props {
+export interface DisplayTextWithLabelProps {
     label: string;
     text: string | string[];
 }
 
-const DisplayTextWithLabel: React.FunctionComponent<Props> = (props) => (
+const DisplayTextWithLabel: React.FunctionComponent<DisplayTextWithLabelProps> = (props) => (
     <div className="textWithLabel">
-        {props.label && <Element className="textWithLabel__label">{props.label}</Element>}
+        {props.label && (
+            <Heading size="xsmall" level="2">
+                {props.label}
+            </Heading>
+        )}
         {Array.isArray(props.text) &&
             props.text.map((textElement, index) => (
-                <Normaltekst key={`${textElement}-${index}`} className="textWithLabel__text">
-                    {textElement}
-                </Normaltekst>
+                <BodyShort key={`${textElement}-${index}`}>{textElement}</BodyShort>
             ))}
-        {!Array.isArray(props.text) && <Normaltekst className="textWithLabel__text">{props.text}</Normaltekst>}
+        {!Array.isArray(props.text) && <BodyShort>{props.text}</BodyShort>}
     </div>
 );
 export default DisplayTextWithLabel;

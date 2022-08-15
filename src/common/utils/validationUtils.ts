@@ -1,4 +1,4 @@
-import { DateRange, NavFrontendSkjemaFeil, YesOrNo } from '@navikt/sif-common-formik/lib';
+import { DateRange, YesOrNo } from '@navikt/sif-common-formik/lib';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import minMax from 'dayjs/plugin/minMax';

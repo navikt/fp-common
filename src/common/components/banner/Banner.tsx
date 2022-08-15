@@ -5,7 +5,7 @@ import './banner.less';
 
 export type BannerSize = 'small' | 'large' | 'xlarge';
 
-interface BannerProps {
+export interface BannerProps {
     size: BannerSize;
     className?: string;
     children: React.ReactNode;

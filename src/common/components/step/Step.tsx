@@ -1,7 +1,6 @@
 import React from 'react';
-import { Systemtittel } from 'nav-frontend-typografi';
 import bemUtils from './../../utils/bemUtils';
-import Page from '../page/Page';
+import Page from './Page';
 import StepIndicator, { StepIndicatorStep } from '../step-indicator/StepIndicator';
 import StepBanner from '../step-banner/StepBanner';
 import Block from '../block/Block';
@@ -9,8 +8,9 @@ import BackLink from '../back-link/BackLink';
 import StepFooter from '../step-footer/StepFooter';
 
 import './step.less';
+import { Heading } from '@navikt/ds-react';
 
-interface Props {
+export interface StepProps {
     pageTitle: string;
     stepTitle: string;
     kompakt: boolean;
@@ -30,7 +30,7 @@ interface Props {
     infoMessage?: React.ReactNode;
 }
 
-const Step: React.FunctionComponent<Props> = ({
+const Step: React.FunctionComponent<StepProps> = ({
     bannerTitle,
     pageTitle,
     stepTitle,
@@ -70,9 +70,9 @@ const Step: React.FunctionComponent<Props> = ({
             {(showStepIndicator || backLinkHref) && (
                 <>
                     <Block padBottom="l">
-                        <Systemtittel className={bem.element('title')} tag="h1">
+                        <Heading size="medium" className={bem.element('title')}>
                             {stepTitle}
-                        </Systemtittel>
+                        </Heading>
                     </Block>
                     <div role="presentation" aria-hidden={true}>
                         <StepIndicator kompakt={kompakt} steps={steps} activeStep={currentStepIndex} />

@@ -1,12 +1,12 @@
 import bemUtils from '../../utils/bemUtils';
 import React from 'react';
-import SpeechBubble from '../speech-bubble/SpeechBubble';
+import SpeechBubble from './SpeechBubble';
 
 import Veileder, { VeilederProps } from '../veileder/Veileder';
 
 import './sidebanner.less';
 
-interface Props {
+export interface SidebannerProps {
     dialog?: Dialog;
     veileder?: VeilederProps;
 }
@@ -16,7 +16,7 @@ interface Dialog {
     text: string | React.ReactNode;
 }
 
-const Sidebanner: React.FunctionComponent<Props> = ({ dialog, veileder }) => {
+const Sidebanner: React.FunctionComponent<SidebannerProps> = ({ dialog, veileder }) => {
     const bem = bemUtils('sidebanner');
     return (
         <div className={bem.block}>

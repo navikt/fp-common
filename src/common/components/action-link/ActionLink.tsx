@@ -1,5 +1,4 @@
-import React from 'react';
-import Lenke from 'nav-frontend-lenker';
+import { Link } from '@navikt/ds-react';
 
 interface Props {
     className?: string;
@@ -15,7 +14,7 @@ const stopClickEvent = (evt: React.MouseEvent<HTMLAnchorElement>) => {
 
 const ActionLink: React.FunctionComponent<Props> = ({ onClick, children, className, ariaLabel }) => {
     return (
-        <Lenke
+        <Link
             className={className}
             href="#"
             aria-label={ariaLabel}
@@ -25,7 +24,7 @@ const ActionLink: React.FunctionComponent<Props> = ({ onClick, children, classNa
             }}
         >
             {children}
-        </Lenke>
+        </Link>
     );
 };
 

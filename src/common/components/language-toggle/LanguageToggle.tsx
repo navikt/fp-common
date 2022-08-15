@@ -1,15 +1,14 @@
 import React from 'react';
 import { Button, Menu, MenuItem, Wrapper } from 'react-aria-menubutton';
 import { IntlShape, useIntl } from 'react-intl';
-import 'nav-frontend-lenker-style';
 import { Locale } from '../../types/Locale';
 import intlHelper from '../../utils/intlUtils';
 import NorwayFlagSVG from './NorwayFlag';
-import { NedChevron } from 'nav-frontend-chevron';
+import { Expand } from '@navikt/ds-icons';
 
 import './languageToggle.less';
 
-interface Props {
+export interface LanguageToggleProps {
     toggle: (locale: Locale) => void;
     locale: Locale;
     availableLocales: Locale[];
@@ -30,7 +29,11 @@ const renderMenuItem = (intl: IntlShape, locale: Locale) => {
     );
 };
 
-const LanguageToggle: React.FunctionComponent<Props> = ({ locale, toggle: toggleLanguage, availableLocales }) => {
+const LanguageToggle: React.FunctionComponent<LanguageToggleProps> = ({
+    locale,
+    toggle: toggleLanguage,
+    availableLocales,
+}) => {
     const selectableOtherMenuLanguages: Locale[] = [...availableLocales].filter((code) => code !== locale) as Locale[];
     const intl = useIntl();
 
@@ -46,7 +49,7 @@ const LanguageToggle: React.FunctionComponent<Props> = ({ locale, toggle: toggle
                     </div>
                     <div className="languageToggle__button__language">{intlHelper(intl, `locale.${locale}`)}</div>
                     <div>
-                        <NedChevron />
+                        <Expand />
                     </div>
                 </Button>
                 <Menu className="languageToggle__menu">

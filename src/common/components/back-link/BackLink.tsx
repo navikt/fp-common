@@ -1,11 +1,8 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import { useNavigate } from 'react-router-dom';
-import Chevron from 'nav-frontend-chevron';
-import Lenke from 'nav-frontend-lenker';
-import bemUtils from '../../utils/bemUtils';
-
-import './backLink.less';
+import { Link } from '@navikt/ds-react';
+import { Back } from '@navikt/ds-icons';
 
 interface BackLinkProps {
     className?: string;
@@ -16,7 +13,6 @@ interface BackLinkProps {
 
 const BackLink: React.FunctionComponent<BackLinkProps> = ({ className, href, onClick, ariaLabel }) => {
     const navigate = useNavigate();
-    const bem = bemUtils('backLink');
 
     const handleOnClick = (event: React.SyntheticEvent) => {
         if (onClick) {
@@ -28,12 +24,10 @@ const BackLink: React.FunctionComponent<BackLinkProps> = ({ className, href, onC
     };
 
     return (
-        <div className={`${bem.block} ${className}`} onClick={handleOnClick}>
-            <Chevron className={bem.element('chevron')} type="venstre" />
-            <Lenke className={bem.element('link')} href={href} ariaLabel={ariaLabel}>
-                <FormattedMessage id="backlink.label" />
-            </Lenke>
-        </div>
+        <Link href={href} aria-label={ariaLabel} onClick={handleOnClick}>
+            <Back />
+            <FormattedMessage id="backlink.label" />
+        </Link>
     );
 };
 

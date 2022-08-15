@@ -1,12 +1,10 @@
-// @ts-nocheck
 import React from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-import Lenke from 'nav-frontend-lenker';
-import { Systemtittel, Undertittel } from 'nav-frontend-typografi';
 import PictureScanningExample from './PictureScanningExample';
 import bemUtils from './../../utils/bemUtils';
 import intlHelper from './../../utils/intlUtils';
 import ScanningIkon from './../../assets/scanning-ikon/ScanningIkon';
+import { Heading, Link } from '@navikt/ds-react';
 
 import './pictureScanningGuide.less';
 
@@ -17,13 +15,13 @@ const PictureScanningGuide: React.FunctionComponent = () => {
 
     return (
         <div className={bem.block}>
-            <Systemtittel className={bem.element('title')}>
+            <Heading level="2" size="medium">
                 <FormattedMessage id="psg.innholdstittel" />
-            </Systemtittel>
+            </Heading>
 
-            <Undertittel className={bem.element('title')}>
+            <Heading size="small" level="3" className={bem.element('title')}>
                 <FormattedMessage id="psg.section1.tittel" />
-            </Undertittel>
+            </Heading>
             <ul>
                 <FormattedMessage tagName="li" id="psg.section1.liste.punkt1" />
                 <FormattedMessage
@@ -35,18 +33,18 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                 />
                 <FormattedMessage tagName="li" id="psg.section1.liste.punkt3" />
             </ul>
-            <Undertittel className={bem.element('title')}>
+            <Heading size="small" level="3" className={bem.element('title')}>
                 <FormattedMessage id="psg.section2.tittel" />
-            </Undertittel>
+            </Heading>
             <ul>
                 <FormattedMessage tagName="li" id="psg.section2.liste.punkt1" />
                 <FormattedMessage tagName="li" id="psg.section2.liste.punkt2" />
                 <FormattedMessage tagName="li" id="psg.section2.liste.punkt3" />
             </ul>
             <div className={bem.element('examples')}>
-                <Undertittel tag="h3" className={bem.element('title')}>
+                <Heading size="small" level="3" className={bem.element('title')}>
                     <FormattedMessage id="psg.icon.heading" />
-                </Undertittel>
+                </Heading>
                 <div className={bem.element('body')}>
                     <div className={bem.element('cell')}>
                         <PictureScanningExample
@@ -81,9 +79,9 @@ const PictureScanningGuide: React.FunctionComponent = () => {
                         />
                     </div>
                 </div>
-                <Lenke target="_blank" href={intlHelper(intl, 'psg.lenkepanel.url')}>
+                <Link target="_blank" href={intlHelper(intl, 'psg.lenkepanel.url')}>
                     <FormattedMessage id="psg.lenkepanel.text" />
-                </Lenke>
+                </Link>
             </div>
         </div>
     );

@@ -1,5 +1,4 @@
-import * as React from 'react';
-import NavFrontendChevron from 'nav-frontend-chevron';
+import { Collapse, Expand } from '@navikt/ds-icons';
 import bemUtils from './../../utils/bemUtils';
 
 import './infoToggler.less';
@@ -25,9 +24,7 @@ const InfoToggler: React.FunctionComponent<Props> = ({ apen = false, children, o
         >
             <span className={cls.element('content')}>
                 <span className={cls.element('label')}>{children}</span>
-                <span className={cls.element('chevron')}>
-                    <NavFrontendChevron type={apen ? 'opp' : 'ned'} />
-                </span>
+                <span className={cls.element('chevron')}>{apen ? <Collapse /> : <Expand />}</span>
             </span>
         </button>
     );

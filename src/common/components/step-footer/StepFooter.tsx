@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 import bemUtils from '../../utils/bemUtils';
 import ActionLink from '../action-link/ActionLink';
-import AvbrytSøknadDialog from '../dialogs/avbryt-søknad-dialog/AvbrytSøknadDialog';
+import AvbrytSoknadDialog from '../dialogs/avbryt-soknad-dialog/AvbrytSoknadDialog';
 import FortsettSøknadSenereDialog from '../dialogs/fortsett-søknad-senere-dialog/FortsettSøknadSenereDialog';
 
 import './stepFooter.less';
@@ -45,7 +45,7 @@ function StepFooter({ onAvbrytOgFortsettSenere, onAvbrytOgSlett }: Props) {
                 />
             )}
             {onAvbrytOgSlett && (
-                <AvbrytSøknadDialog
+                <AvbrytSoknadDialog
                     synlig={visAvbrytDialog}
                     onAvbrytSøknad={onAvbrytOgSlett}
                     onFortsettSøknad={() => setVisAvbrytDialog(false)}
