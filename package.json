@@ -18,7 +18,7 @@
         "bumpit": "npm-run-all build-lib minor do-publish",
         "major": "npm version major",
         "breakit": "npm-run-all build-lib major do-publish",
-        "postinstall": "sh ./extensionify-less.sh",
+        "postinstall": "patch-package",
         "compile-lib-script": "tsc -p tsconfig-build-lib.json",
         "copy-files-to-lib": "copyfiles -u 2 \"src/common/**/*.less\" lib/ && copyfiles -u 2 \"src/common/**/*.json\" lib/"
     },
@@ -44,6 +44,7 @@
         "nav-frontend-stegindikator": "^2.0.3",
         "nav-frontend-stegindikator-style": "^2.0.2",
         "nav-frontend-typografi-style": "^2.0.2",
+        "patch-package": "^6.4.7",
         "react": "^18.0.0",
         "react-aria-menubutton": "^7.0.3",
         "react-collapse": "^5.1.1",
