@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { guid } from 'nav-frontend-js-utils';
 import InfoToggler from './InfoToggler';
+import { guid } from './../../utils/guid';
 import EkspanderbartInnhold from './EkspanderbartInnhold';
 import { useIntl } from 'react-intl';
 import intlHelper from './../../utils/intlUtils';

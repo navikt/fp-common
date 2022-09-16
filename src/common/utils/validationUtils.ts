@@ -1,9 +1,9 @@
-import { DateRange, YesOrNo } from '@navikt/sif-common-formik/lib';
 import dayjs from 'dayjs';
 import isBetween from 'dayjs/plugin/isBetween';
 import minMax from 'dayjs/plugin/minMax';
 import isSameOrBefore from 'dayjs/plugin/isSameOrBefore';
 import isSameOrAfter from 'dayjs/plugin/isSameOrAfter';
+import { YesOrNo, DateRange } from '@navikt/sif-common-formik-ds/lib';
 
 dayjs.extend(isBetween);
 dayjs.extend(minMax);

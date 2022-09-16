@@ -26,3 +26,4 @@ export { default as useDocumentTitle } from './utils/useDocumentTitle';
 export * from './utils/localeUtils';
 export * from './utils/dateUtils';
 export * from './utils/validationUtils';
+export { guid } from './utils/guid';

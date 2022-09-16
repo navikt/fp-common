@@ -1,8 +1,8 @@
 import React from 'react';
-import { guid } from 'nav-frontend-js-utils';
 import bemUtils from './../../utils/bemUtils';
 import ActionLink from '../action-link/ActionLink';
 import SlettKnapp from '../slett-knapp/SlettKnapp';
+import { guid } from './../../utils/guid';
 
 import './itemList.less';
 
