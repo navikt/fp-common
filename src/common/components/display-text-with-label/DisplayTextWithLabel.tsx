@@ -8,7 +8,7 @@ export interface DisplayTextWithLabelProps {
 const DisplayTextWithLabel: React.FunctionComponent<DisplayTextWithLabelProps> = (props) => (
     <div className="textWithLabel">
         {props.label && (
-            <Heading size="xsmall" level="2">
+            <Heading size="xsmall" level="3">
                 {props.label}
             </Heading>
         )}
