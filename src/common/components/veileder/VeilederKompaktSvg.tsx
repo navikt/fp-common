@@ -6,7 +6,7 @@ export interface Props {
 
 // tslint:disable max-line-length
 const VeilederKompakt: React.FunctionComponent<Props> = ({ svgProps }) => (
-    <svg viewBox="0 0 96 96" xmlnsXlink="http://www.w3.org/1999/xlink" {...svgProps}>
+    <svg viewBox="0 0 96 96" role="img" aria-hidden="true" xmlnsXlink="http://www.w3.org/1999/xlink" {...svgProps}>
         <title>NAV veileder</title>
         <defs>
             <path

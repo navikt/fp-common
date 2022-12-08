@@ -13,7 +13,7 @@ export interface Props extends ScanProps {
 
 const GoodScanning: React.FunctionComponent<ScanProps> = ({ title, height }) => {
     return (
-        <svg role="presentation" focusable="false" viewBox="0 0 83 121" height={height}>
+        <svg role="img" aria-hidden="true" focusable="false" viewBox="0 0 83 121" height={height}>
             {title && <title>{title}</title>}
             <defs>
                 <filter
@@ -46,7 +46,7 @@ const GoodScanning: React.FunctionComponent<ScanProps> = ({ title, height }) => 
 };
 const KeystoneScanning: React.FunctionComponent<ScanProps> = ({ title, height }) => {
     return (
-        <svg role="presentation" focusable="false" viewBox="0 0 83 121" height={height}>
+        <svg role="img" aria-hidden="true" focusable="false" viewBox="0 0 83 121" height={height}>
             {title && <title>{title}</title>}
             <desc>Bildet er ikke tatt ovenfra</desc>
             <defs>
@@ -80,7 +80,7 @@ const KeystoneScanning: React.FunctionComponent<ScanProps> = ({ title, height })
 };
 const HorizontalScanning: React.FunctionComponent<ScanProps> = ({ title, height }) => {
     return (
-        <svg role="presentation" focusable="false" viewBox="0 0 83 121" height={height}>
+        <svg role="img" aria-hidden="true" focusable="false" viewBox="0 0 83 121" height={height}>
             {title && <title>{title}</title>}
             <desc>Bildet har ikke riktig retning</desc>
             <defs>
@@ -114,7 +114,7 @@ const HorizontalScanning: React.FunctionComponent<ScanProps> = ({ title, height 
 };
 const ShadowScanning: React.FunctionComponent<ScanProps> = ({ title, height }) => {
     return (
-        <svg role="presentation" focusable="false" viewBox="0 0 83 121" height={height}>
+        <svg role="img" aria-hidden="true" focusable="false" viewBox="0 0 83 121" height={height}>
             {title && <title>{title}</title>}
             <desc>Bildet har har skygge oppå legeerklæring</desc>
             <defs>

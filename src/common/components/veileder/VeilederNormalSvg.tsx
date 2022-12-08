@@ -6,7 +6,7 @@ interface Props {
 
 // tslint:disable max-line-length
 const VeilederNormal: React.FunctionComponent<Props> = ({ svgProps }) => (
-    <svg viewBox="0 0 184 184" xmlnsXlink="http://www.w3.org/1999/xlink" {...svgProps}>
+    <svg viewBox="0 0 184 184" role="img" aria-hidden="true" xmlnsXlink="http://www.w3.org/1999/xlink" {...svgProps}>
         <title>NAV veileder</title>
         <defs>
             <circle id="path-1" cx="92" cy="92" r="92" />
